@@ -16,7 +16,36 @@ then for event based workflow:
 
 https://sdbrett.com/post/2021-06-18-integrate-argo-wf-events/
 
+important event note:
 
+-deploy everything under "argo" namespace.
+
+use this service account yaml and workflow service account from here:
+
+https://github.com/shamiulshifat/Argo-on-Microk8s/tree/main
+
+***********************
+```
+kubectl create ns argo-events
+# Install Argo Events
+ kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install.yaml
+# Deploy the Event Bus
+
+ kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
+#again deploy for argo namespacee
+ kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
+```
+now deploy every sensor, event source under "argo" namespace
+
+use this service account yaml and workflow service account from here:
+
+https://github.com/shamiulshifat/Argo-on-Microk8s/tree/main
+
+
+then run webhook for a http webhook:
+```
+kubectl -n argo port-forward $(kubectl -n argo get pod -l eventsource-name=webhook-titanic -o name) 8080:8080
+```
 
 *****************************
 kubectl --kubeconfig ./admin.conf
