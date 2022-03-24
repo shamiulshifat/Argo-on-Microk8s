@@ -9,8 +9,9 @@ microk8s enable dns
 ```
 then install if want minio pre configured:
 ```
-kubectl create namespace argo-events
-kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install.yaml
+kubectl create ns argo
+kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/quick-start-postgres.yaml
+
 ```
 then for event based workflow:
 
