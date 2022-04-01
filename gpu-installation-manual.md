@@ -26,6 +26,10 @@ but can follow this link for easy:
 
 https://linuxize.com/post/how-to-nvidia-drivers-on-ubuntu-20-04/
 
+then follow these steps:
+
+https://discuss.kubernetes.io/t/my-adventures-with-microk8s-to-enable-gpu-and-use-mig-on-a-dgx-a100/15366
+
 #########################
 to see if gpu is attached with k8s:
 ```
