@@ -2,7 +2,11 @@
 https://100daysofkubernetes.io/tools/argo.html?highlight=argo#argo-workflows
 
 for installlation- argo workflows-events. follow this:
+**********************************
 
+always install latest version
+
+**********************************
 first install microk8s dns or it will not let u install workflow controller, server:
 ```
 microk8s enable dns
