@@ -13,6 +13,17 @@ kubectl create ns argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/quick-start-postgres.yaml
 
 ```
+###########################
+run 
+```
+kubectl -n argo port-forward deployment/argo-server 2746:2746
+```
+
+go to: 
+https://localhost:2746/workflows?limit=500
+
+
+#######################
 then for event based workflow:
 
 https://sdbrett.com/post/2021-06-18-integrate-argo-wf-events/
