@@ -7,6 +7,11 @@ first install microk8s dns or it will not let u install workflow controller, ser
 ```
 microk8s enable dns
 ```
+then install docker:
+
+https://docs.docker.com/engine/install/ubuntu/
+
+
 then install if want minio pre configured:
 ```
 kubectl create ns argo
