@@ -15,7 +15,8 @@ https://docs.docker.com/engine/install/ubuntu/
 then install if want minio pre configured:
 ```
 kubectl create ns argo
-kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/quick-start-postgres.yaml
+## latest
+ kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-postgres.yaml
 
 ```
 ###########################
@@ -49,7 +50,7 @@ kubectl create ns argo-events
 # Deploy the Event Bus
 
  kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
-#again deploy for argo namespacee
+#again deploy for argo namespace
  kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
 ```
 now deploy every sensor, event source under "argo" namespace
