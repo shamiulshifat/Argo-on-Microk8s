@@ -33,23 +33,33 @@ tasks to do for betterdata engine:
 use imagePullPolicy: never to get image from local
 image: dockerofflineimage:v1
 imagePullPolicy: Never
-
+##################################################################
+ This works for betterdata:::
 setup:::
-
+######################################################################
 This should work irrespective of whether you are using minikube or not :
 
 Start a local registry container:
-> docker run -d -p 5000:5000 --restart=always --name registry registry:2
+> sudo docker run -d -p 5000:5000 --restart=always --name registry registry:2
+ 
 Do docker images to find out the REPOSITORY and TAG of your local image. Then create a new tag for your local image :
-> docker tag <local-image-repository>:<local-image-tag> localhost:5000/<local-image-name>
+ 
+> sudo docker tag <local-image-repository>:<local-image-tag> localhost:5000/<local-image-name>
+ 
 If TAG for your local image is <none>, you can simply do:
+ 
 here>  local repo: localhost:5000
 
 docker tag <local-image-name> localhost:5000/<local-image-name>
+ 
 > sudo docker tag train_model localhost:5000/train_model
+ 
 Push to local registry :
-docker push localhost:5000/<local-image-name>
+ 
+> sudo docker push localhost:5000/<local-image-name>
+ 
 > sudo docker push localhost:5000/train_model
+ 
 This will automatically add the latest tag to localhost:5000/<local-image-name>. You can check again by doing docker images.
 
 In your yaml file, set imagePullPolicy to IfNotPresent :
@@ -61,6 +71,19 @@ spec:
     imagePullPolicy: IfNotPresent
 ...
 That's it. Now your ImagePullError should be resolved.
+ 
+ -------------------------------------------------
+ for example:
+ 
+ ```
+ 
+sudo docker image build -t model_train_v5 .
+sudo docker tag model_train_v5 localhost:5000/model_train_v5
+sudo docker push localhost:5000/model_train_v5
+ 
+ ```
+ 
+ -----------------------------------------------
 
 Note: If you have multiple hosts in the cluster, and you want to use a specific one to host the registry, just replace localhost in all the above steps with the hostname of the host where the registry container is hosted. In that case, you may need to allow HTTP (non-HTTPS) connections to the registry:
 
