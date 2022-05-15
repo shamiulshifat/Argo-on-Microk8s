@@ -3,6 +3,8 @@
 **********************************************
 Now we setup offline docker repo locally:
 
+https://stackoverflow.com/questions/35575674/how-to-save-all-docker-images-and-copy-to-another-machine
+
 # to generate an offline docker image:
 
 # docker save -o <generated tar file name> <repository_name:tag_name>
