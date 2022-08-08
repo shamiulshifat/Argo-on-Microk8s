@@ -14,12 +14,32 @@ sudo apt-get autoclean
 sudo rm -rf /usr/local/cuda*
 
 ```
-then reboot vm:
+then reboot vm: very important!!
 
 ```
 sudo reboot
 
 ```
+
+Now we install cuda:
+
+```
+sudo apt install nvidia-driver-460
+```
+then reboot vm: very important!!
+
+```
+sudo reboot
+
+```
+
+then verify if cuda is working or not:
+
+```
+nvidia-smi
+```
+
+
 #############################
 cuda installation:
 
