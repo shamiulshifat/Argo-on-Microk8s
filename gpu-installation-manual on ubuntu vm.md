@@ -14,7 +14,12 @@ sudo apt-get autoclean
 sudo rm -rf /usr/local/cuda*
 
 ```
+then reboot vm:
 
+```
+sudo reboot
+
+```
 #############################
 cuda installation:
 
