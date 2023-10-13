@@ -26,6 +26,7 @@ Now we install cuda:
 ```
 sudo apt install nvidia-driver-460
 ```
+if has secure boot enabled, follow this: https://learn.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup#install-cuda-driver-on-ubuntu-with-secure-boot-enabled
 then reboot vm: very important!!
 
 ```
