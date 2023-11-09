@@ -1,0 +1,14 @@
+
+Link: 
+do not use microk8s enable gpu. instead use: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/install-gpu-operator.html [look for microk8s]
+
+microk8s helm install gpu-operator -n gpu-operator --create-namespace \
+  nvidia/gpu-operator $HELM_OPTIONS \
+    --set toolkit.env[0].name=CONTAINERD_CONFIG \
+    --set toolkit.env[0].value=/var/snap/microk8s/current/args/containerd-template.toml \
+    --set toolkit.env[1].name=CONTAINERD_SOCKET \
+    --set toolkit.env[1].value=/var/snap/microk8s/common/run/containerd.sock \
+    --set toolkit.env[2].name=CONTAINERD_RUNTIME_CLASS \
+    --set toolkit.env[2].value=nvidia \
+    --set toolkit.env[3].name=CONTAINERD_SET_AS_DEFAULT \
+    --set-string toolkit.env[3].value=true
