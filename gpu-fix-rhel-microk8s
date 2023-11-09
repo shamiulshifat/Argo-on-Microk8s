@@ -12,3 +12,6 @@ microk8s helm install gpu-operator -n gpu-operator --create-namespace \
     --set toolkit.env[2].value=nvidia \
     --set toolkit.env[3].name=CONTAINERD_SET_AS_DEFAULT \
     --set-string toolkit.env[3].value=true
+
+
+then test: microk8s kubectl logs -n gpu-operator -lapp=nvidia-operator-validator -c nvidia-operator-validator
