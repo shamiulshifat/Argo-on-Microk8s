@@ -89,11 +89,18 @@ sudo apt install -y nvidia-driver-460
 
 sudo reboot
 
+
+
 Verify the NVIDIA driver installation:
 After rebooting, check if the NVIDIA driver is correctly installed:
 
 
 nvidia-smi
+
+--------------
+if still does not work, try this:
+
+sudo ubuntu-drivers autoinstall
 
 Install CUDA toolkit:
 You need the CUDA toolkit to utilize the GPU for Kubernetes workloads. Follow the official CUDA installation guide for Ubuntu here.
@@ -118,3 +125,4 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 sudo apt update
 sudo apt install -y nvidia-container-toolkit
 sudo systemctl restart docker
+------------------------------------
