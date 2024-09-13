@@ -31,6 +31,10 @@ sudo apt update && sudo apt install -y ubuntu-drivers-common
 sudo ubuntu-drivers install
 
 sudo reboot
+
+sudo apt update
+
+sudo apt install -y nvidia-container-toolkit
 ```
 if has secure boot enabled, follow this: https://learn.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup
 then reboot vm: very important!!
