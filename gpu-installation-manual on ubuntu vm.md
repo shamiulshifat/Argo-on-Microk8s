@@ -74,65 +74,71 @@ microk8s kubectl get nodes -o yaml | grep gpu
 
 
 ------------------------optimal code:
+
 Update the system and install prerequisites:
 
-
+```
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y build-essential dkms
-
+```
 Add the NVIDIA package repository:
-
+```
 sudo apt install -y software-properties-common
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
-
+```
 Install the NVIDIA driver:
+
 You need to install the appropriate NVIDIA driver for your GPU. For NVIDIA L20, a suitable driver version is usually 450 or later. You can install it with:
 
 With the latest driver version compatible with your GPU if needed.
 
 Reboot your system:
-
+```
 sudo apt install -y nvidia-driver-460
 
 
 sudo reboot
-
+```
 
 
 Verify the NVIDIA driver installation:
+
 After rebooting, check if the NVIDIA driver is correctly installed:
 
-
+```
 nvidia-smi
-
+```
 --------------
 if still does not work, try this:
 
 sudo ubuntu-drivers autoinstall
 
 Install CUDA toolkit:
+
 You need the CUDA toolkit to utilize the GPU for Kubernetes workloads. Follow the official CUDA installation guide for Ubuntu here.
 
 For example, to install CUDA 11.2, you can use the following commands:
 
-
+```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
 sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
 sudo apt update
 sudo apt install -y cuda
-
+```
 Install NVIDIA container toolkit:
+
 This toolkit is required to run GPU workloads in containers.
 
-
+```
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 sudo apt update
 sudo apt install -y nvidia-container-toolkit
 sudo systemctl restart docker
+```
 ------------------------------------
