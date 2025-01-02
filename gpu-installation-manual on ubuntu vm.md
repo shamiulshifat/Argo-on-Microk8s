@@ -112,9 +112,9 @@ nvidia-smi
 ```
 --------------
 if still does not work, try this:
-
+```
 sudo ubuntu-drivers autoinstall
-
+```
 Install CUDA toolkit:
 
 You need the CUDA toolkit to utilize the GPU for Kubernetes workloads. Follow the official CUDA installation guide for Ubuntu here.
