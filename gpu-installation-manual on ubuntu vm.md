@@ -39,6 +39,23 @@ sudo apt install -y nvidia-container-toolkit
 if has secure boot enabled, follow this: https://learn.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup
 then reboot vm: very important!!
 
+If you have monitor, must disable secure boot to driver work properly, otherwise it keeps saying driver cant communicate.
+
+Commands:
+
+to check:
+
+```
+mokutil --sb-state
+```
+Now disable:
+
+```
+sudo mokutil --disable-validation
+```
+Then follow prompts, reboot, then again follow on screen prompts.
+
+
 ```
 sudo reboot
 
