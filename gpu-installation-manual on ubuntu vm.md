@@ -148,7 +148,7 @@ sudo apt install -y cuda
 ```
 Install NVIDIA container toolkit:
 
-This toolkit is required to run GPU workloads in containers.
+This toolkit is required to run GPU workloads in containers. No need to install separately, just nvidia driver install works for microk8s. can skip if nvidia-smi works. ubuntu 22.04 needed. microk8s gpu does not work on ubuntu 24.04 still.
 
 ```
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
